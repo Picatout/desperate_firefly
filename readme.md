@@ -27,7 +27,7 @@ The LED cathode is connected to P1.3 which is configured in open drain output mo
                    -|P0.1             P0.4|-
                    -|P0.0             P0.5|-
                    -|GND              P0.6|-
-               +3v -|VDD  FM8BB10F8G  P0.7|-
+               +3v -|VDD EFM8BB10F8G  P0.7|-
                    -|RSTb/C2CK        P1.0|-
                    -|P2.0/C2D         P1.1|-
      +3v--1K--LEDc -|P1.3             P1.2|-
