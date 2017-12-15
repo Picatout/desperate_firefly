@@ -11,9 +11,13 @@ A simple project using only 5 components to blink SOS morse code.
 Bill of material
 ----------------
 1 x EFM8BB10F8G-SOIC16  MCU
+
 1 x SMD 0806  1K resistor
+
 1 x 3mm red led
+
 1 x CR2032 lithium cell
+
 1 x CR2032 cell holder
 
 The LED cathode is connected to P1.3 which is configured in open drain output mode.
