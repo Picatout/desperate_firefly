@@ -28,30 +28,8 @@ void SiLabs_Startup (void)
    WDTCN = 0xAD; //Second key
 }
 
-void hardware_config(void){
-	// LED connected to Port 1 pin 3. i.e. P1.3
-	//reduce port 1 drive strength
-	PRTDRV&=~(PRTDRV_P1DRV__BMASK);
-	//Port 1 pin 3 output mode open drain
-	P1MDOUT&=~(P1MDOUT_B3__BMASK);
-	// enable crossbar with weak pull up disabled
-	XBR2=XBR2_XBARE__ENABLED|XBR2_WEAKPUD__BMASK;
-	// configure system clock
-	// System clock can be drop as low as 78,125 Hertz with appropriate settings of LFO0CN and CLKSEL registers.
-	// first enable Low Frequency Oscillator with output divided by 8.
-	LFO0CN=LFO0CN_OSCLEN__ENABLED|LFO0CN_OSCLD__DIVIDE_BY_8;
-	// wait for oscillator ready bit.
-	while ((LFO0CN&LFO0CN_OSCLRDY__SET)==0);
-	// select LFO as system clock and divide that frequency again by 32
-	// system clock is 80Khz/8/32=312,5 Hertz
-	// T=1/Fsys=3,2msec
-	CLKSEL=CLKSEL_CLKDIV__SYSCLK_DIV_32|CLKSEL_CLKSL__LFOSC;
-
-}
 // bit pattern to generate SOS morse code: dit,dit,dit,dah,dah,dah,dit,dit,dit
-const char sos[4]={0xab,0xbb,0xaa,0};
-
-
+code char sos[4]={0xab,0xbb,0xaa,0};
 
 //-----------------------------------------------------------------------------
 // main() Routine
@@ -62,7 +40,6 @@ int main (void)
 
 // Call hardware initialization routine
   enter_DefaultMode_from_RESET();
-  hardware_config();
   b=0;
   while (1) 
   {

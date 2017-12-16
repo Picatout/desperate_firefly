@@ -1,4 +1,4 @@
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        12/03/2017 12:39:39 PAGE 1   
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        12/15/2017 17:18:50 PAGE 1   
 
 
 C51 COMPILER V9.53.0.0, COMPILATION OF MODULE INITDEVICE
@@ -35,59 +35,104 @@ line level    source
   21          //==============================================================================
   22          extern void enter_DefaultMode_from_RESET(void) {
   23   1              // $[Config Calls]
-  24   1              PORTS_1_enter_DefaultMode_from_RESET();
-  25   1              PBCFG_0_enter_DefaultMode_from_RESET();
-  26   1              // [Config Calls]$
-  27   1      
-  28   1      }
-  29          
-  30          extern void PORTS_1_enter_DefaultMode_from_RESET(void) {
-  31   1              // $[P1 - Port 1 Pin Latch]
-  32   1              // [P1 - Port 1 Pin Latch]$
-  33   1      
-  34   1              // $[P1MDOUT - Port 1 Output Mode]
-  35   1              // [P1MDOUT - Port 1 Output Mode]$
+  24   1              WDT_0_enter_DefaultMode_from_RESET();
+  25   1              PORTS_1_enter_DefaultMode_from_RESET();
+  26   1              PBCFG_0_enter_DefaultMode_from_RESET();
+  27   1              LFOSC_0_enter_DefaultMode_from_RESET();
+  28   1              CLOCK_0_enter_DefaultMode_from_RESET();
+  29   1              // [Config Calls]$
+  30   1      
+  31   1      }
+  32          
+  33          extern void PORTS_1_enter_DefaultMode_from_RESET(void) {
+  34   1              // $[P1 - Port 1 Pin Latch]
+  35   1              // [P1 - Port 1 Pin Latch]$
   36   1      
-  37   1              // $[P1MDIN - Port 1 Input Mode]
-  38   1              // [P1MDIN - Port 1 Input Mode]$
+  37   1              // $[P1MDOUT - Port 1 Output Mode]
+  38   1              // [P1MDOUT - Port 1 Output Mode]$
   39   1      
-  40   1              // $[P1SKIP - Port 1 Skip]
-  41   1              /***********************************************************************
-  42   1               - P1.0 pin is not skipped by the crossbar
-  43   1               - P1.1 pin is not skipped by the crossbar
-  44   1               - P1.2 pin is not skipped by the crossbar
-  45   1               - P1.3 pin is skipped by the crossbar
-  46   1               ***********************************************************************/
-  47   1              P1SKIP = P1SKIP_B0__NOT_SKIPPED | P1SKIP_B1__NOT_SKIPPED
-  48   1                              | P1SKIP_B2__NOT_SKIPPED | P1SKIP_B3__SKIPPED;
-  49   1              // [P1SKIP - Port 1 Skip]$
-  50   1      
-  51   1              // $[P1MASK - Port 1 Mask]
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        12/03/2017 12:39:39 PAGE 2   
+  40   1              // $[P1MDIN - Port 1 Input Mode]
+  41   1              // [P1MDIN - Port 1 Input Mode]$
+  42   1      
+  43   1              // $[P1SKIP - Port 1 Skip]
+  44   1              /***********************************************************************
+  45   1               - P1.0 pin is not skipped by the crossbar
+  46   1               - P1.1 pin is not skipped by the crossbar
+  47   1               - P1.2 pin is not skipped by the crossbar
+  48   1               - P1.3 pin is skipped by the crossbar
+  49   1               ***********************************************************************/
+  50   1              P1SKIP = P1SKIP_B0__NOT_SKIPPED | P1SKIP_B1__NOT_SKIPPED
+  51   1                              | P1SKIP_B2__NOT_SKIPPED | P1SKIP_B3__SKIPPED;
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        12/15/2017 17:18:50 PAGE 2   
 
-  52   1              // [P1MASK - Port 1 Mask]$
+  52   1              // [P1SKIP - Port 1 Skip]$
   53   1      
-  54   1              // $[P1MAT - Port 1 Match]
-  55   1              // [P1MAT - Port 1 Match]$
+  54   1              // $[P1MASK - Port 1 Mask]
+  55   1              // [P1MASK - Port 1 Mask]$
   56   1      
-  57   1      }
-  58          
-  59          extern void PBCFG_0_enter_DefaultMode_from_RESET(void) {
-  60   1              // $[XBR2 - Port I/O Crossbar 2]
-  61   1              // [XBR2 - Port I/O Crossbar 2]$
-  62   1      
-  63   1              // $[PRTDRV - Port Drive Strength]
-  64   1              // [PRTDRV - Port Drive Strength]$
-  65   1      
-  66   1              // $[XBR0 - Port I/O Crossbar 0]
-  67   1              // [XBR0 - Port I/O Crossbar 0]$
-  68   1      
-  69   1              // $[XBR1 - Port I/O Crossbar 1]
-  70   1              // [XBR1 - Port I/O Crossbar 1]$
-  71   1      
-  72   1      }
-  73          
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        12/03/2017 12:39:39 PAGE 3   
+  57   1              // $[P1MAT - Port 1 Match]
+  58   1              // [P1MAT - Port 1 Match]$
+  59   1      
+  60   1      }
+  61          
+  62          extern void PBCFG_0_enter_DefaultMode_from_RESET(void) {
+  63   1              // $[XBR2 - Port I/O Crossbar 2]
+  64   1              /***********************************************************************
+  65   1               - Weak Pullups enabled 
+  66   1               - Crossbar enabled
+  67   1               ***********************************************************************/
+  68   1              XBR2 = XBR2_WEAKPUD__PULL_UPS_ENABLED | XBR2_XBARE__ENABLED;
+  69   1              // [XBR2 - Port I/O Crossbar 2]$
+  70   1      
+  71   1              // $[PRTDRV - Port Drive Strength]
+  72   1              // [PRTDRV - Port Drive Strength]$
+  73   1      
+  74   1              // $[XBR0 - Port I/O Crossbar 0]
+  75   1              // [XBR0 - Port I/O Crossbar 0]$
+  76   1      
+  77   1              // $[XBR1 - Port I/O Crossbar 1]
+  78   1              // [XBR1 - Port I/O Crossbar 1]$
+  79   1      
+  80   1      }
+  81          
+  82          extern void WDT_0_enter_DefaultMode_from_RESET(void) {
+  83   1              // $[WDTCN - Watchdog Timer Control]
+  84   1              //Disable Watchdog with key sequence
+  85   1              WDTCN = 0xDE; //First key
+  86   1              WDTCN = 0xAD; //Second key
+  87   1              // [WDTCN - Watchdog Timer Control]$
+  88   1      
+  89   1      }
+  90          
+  91          extern void LFOSC_0_enter_DefaultMode_from_RESET(void) {
+  92   1              // $[LFO0CN - Low Frequency Oscillator Control]
+  93   1              /***********************************************************************
+  94   1               - Internal L-F Oscillator Enabled
+  95   1               ***********************************************************************/
+  96   1              LFO0CN |= LFO0CN_OSCLEN__ENABLED;
+  97   1              // [LFO0CN - Low Frequency Oscillator Control]$
+  98   1      
+  99   1              // $[Wait for LFOSC Ready]
+ 100   1              while ((LFO0CN & LFO0CN_OSCLRDY__BMASK) != LFO0CN_OSCLRDY__SET)
+ 101   1                      ;
+ 102   1              // [Wait for LFOSC Ready]$
+ 103   1      
+ 104   1      }
+ 105          
+ 106          extern void CLOCK_0_enter_DefaultMode_from_RESET(void) {
+ 107   1              // $[CLKSEL - Clock Select]
+ 108   1              /***********************************************************************
+ 109   1               - Clock derived from the Internal Low-Frequency Oscillator
+ 110   1               - SYSCLK is equal to selected clock source divided by 32
+ 111   1               ***********************************************************************/
+ 112   1              CLKSEL = CLKSEL_CLKSL__LFOSC | CLKSEL_CLKDIV__SYSCLK_DIV_32;
+ 113   1              // [CLKSEL - Clock Select]$
+ 114   1      
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        12/15/2017 17:18:50 PAGE 3   
+
+ 115   1      }
+ 116          
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        12/15/2017 17:18:50 PAGE 4   
 
 ASSEMBLY LISTING OF GENERATED OBJECT CODE
 
@@ -95,29 +140,71 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
              ; FUNCTION enter_DefaultMode_from_RESET (BEGIN)
                                            ; SOURCE LINE # 22
                                            ; SOURCE LINE # 24
-0000 120000      R     LCALL   PORTS_1_enter_DefaultMode_from_RESET
+0000 120000      R     LCALL   WDT_0_enter_DefaultMode_from_RESET
                                            ; SOURCE LINE # 25
-0003 020000      R     LJMP    PBCFG_0_enter_DefaultMode_from_RESET
+0003 120000      R     LCALL   PORTS_1_enter_DefaultMode_from_RESET
+                                           ; SOURCE LINE # 26
+0006 120000      R     LCALL   PBCFG_0_enter_DefaultMode_from_RESET
+                                           ; SOURCE LINE # 27
+0009 120000      R     LCALL   LFOSC_0_enter_DefaultMode_from_RESET
+                                           ; SOURCE LINE # 28
+000C 020000      R     LJMP    CLOCK_0_enter_DefaultMode_from_RESET
              ; FUNCTION enter_DefaultMode_from_RESET (END)
 
              ; FUNCTION PORTS_1_enter_DefaultMode_from_RESET (BEGIN)
-                                           ; SOURCE LINE # 30
-                                           ; SOURCE LINE # 47
+                                           ; SOURCE LINE # 33
+                                           ; SOURCE LINE # 50
 0000 75D508            MOV     P1SKIP,#08H
-                                           ; SOURCE LINE # 57
+                                           ; SOURCE LINE # 60
 0003 22                RET     
              ; FUNCTION PORTS_1_enter_DefaultMode_from_RESET (END)
 
              ; FUNCTION PBCFG_0_enter_DefaultMode_from_RESET (BEGIN)
-                                           ; SOURCE LINE # 59
-                                           ; SOURCE LINE # 72
-0000 22                RET     
+                                           ; SOURCE LINE # 62
+                                           ; SOURCE LINE # 68
+0000 75E340            MOV     XBR2,#040H
+                                           ; SOURCE LINE # 80
+0003 22                RET     
              ; FUNCTION PBCFG_0_enter_DefaultMode_from_RESET (END)
+
+             ; FUNCTION WDT_0_enter_DefaultMode_from_RESET (BEGIN)
+                                           ; SOURCE LINE # 82
+                                           ; SOURCE LINE # 85
+0000 7597DE            MOV     WDTCN,#0DEH
+                                           ; SOURCE LINE # 86
+0003 7597AD            MOV     WDTCN,#0ADH
+                                           ; SOURCE LINE # 89
+0006 22                RET     
+             ; FUNCTION WDT_0_enter_DefaultMode_from_RESET (END)
+
+             ; FUNCTION LFOSC_0_enter_DefaultMode_from_RESET (BEGIN)
+                                           ; SOURCE LINE # 91
+                                           ; SOURCE LINE # 96
+0000 43B180            ORL     LFO0CN,#080H
+0003         ?C0005:
+                                           ; SOURCE LINE # 100
+0003 E5B1              MOV     A,LFO0CN
+0005 30E6FB            JNB     ACC.6,?C0005
+0008         ?C0006:
+                                           ; SOURCE LINE # 104
+0008         ?C0007:
+0008 22                RET     
+             ; FUNCTION LFOSC_0_enter_DefaultMode_from_RESET (END)
+
+             ; FUNCTION CLOCK_0_enter_DefaultMode_from_RESET (BEGIN)
+                                           ; SOURCE LINE # 106
+                                           ; SOURCE LINE # 112
+0000 75A952            MOV     CLKSEL,#052H
+                                           ; SOURCE LINE # 115
+0003 22                RET     
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        12/15/2017 17:18:50 PAGE 5   
+
+             ; FUNCTION CLOCK_0_enter_DefaultMode_from_RESET (END)
 
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =     11    ----
+   CODE SIZE        =     43    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----

@@ -1,4 +1,4 @@
-LX51 LINKER/LOCATER V4.66.30.0                                                          12/03/2017  12:45:31  PAGE 1
+LX51 LINKER/LOCATER V4.66.30.0                                                          12/15/2017  17:21:30  PAGE 1
 
 
 LX51 LINKER/LOCATER V4.66.30.0, INVOKED BY:
@@ -19,22 +19,20 @@ INPUT MODULES INCLUDED:
          COMMENT TYPE 0: AX51 V3.12.0.0
   ./src/desperate_firefly_main.OBJ (DESPERATE_FIREFLY_MAIN)
          COMMENT TYPE 0: C51 V9.53.0.0
-  C:\SILICONLABS\SIMPLICITYSTUDIO\V4\DEVELOPER\TOOLCHAINS\KEIL_8051\9.53\LIB\C51S.LIB (?C_INIT)
-         COMMENT TYPE 1: A51 / ASM51 Assembler
 
 
 ACTIVE MEMORY CLASSES OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
 
 BASE        START       END         USED      MEMORY CLASS
 ==========================================================
-C:000000H   C:000000H   C:001FFEH   0000FCH   CODE
-C:000000H   C:000000H   C:001FFEH             CONST
+C:000000H   C:000000H   C:001FFEH   00007DH   CODE
+C:000000H   C:000000H   C:001FFEH   000004H   CONST
 C:000000H   C:000000H   C:001FFEH             ECODE
 B00:0000H   C:000000H   C:001FFEH             HCONST
 X:000000H   X:000000H   X:0000FFH             XDATA
 X:000000H   X:000000H   X:0000FFH             HDATA
 I:000000H   I:000000H   I:0000FFH   000001H   IDATA
-I:000000H   I:000000H   I:00007FH   00000CH   DATA
+I:000000H   I:000000H   I:00007FH   000008H   DATA
 
 
 MEMORY MAP OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
@@ -45,45 +43,51 @@ START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
 
 * * * * * * * * * * *   D A T A   M E M O R Y   * * * * * * * * * * * * *
 000000H   000007H   000008H   ---    AT..     DATA           "REG BANK 0"
-000008H   00000BH   000004H   BYTE   UNIT     DATA           ?DT?DESPERATE_FIREFLY_MAIN
-00000CH   00000CH   000001H   BYTE   UNIT     IDATA          ?STACK
+000008H   000008H   000001H   BYTE   UNIT     IDATA          ?STACK
 
 * * * * * * * * * * *   C O D E   M E M O R Y   * * * * * * * * * * * * *
 000000H   000002H   000003H   ---    OFFS..   CODE           ?CO?SILABS_STARTUP?3
-000003H   000091H   00008FH   BYTE   UNIT     CODE           ?C_C51STARTUP
-000092H   0000CDH   00003CH   BYTE   UNIT     CODE           ?PR?MAIN?DESPERATE_FIREFLY_MAIN
-0000CEH   0000E2H   000015H   BYTE   UNIT     CODE           ?PR?HARDWARE_CONFIG?DESPERATE_FIREFLY_MAIN
-0000E3H   0000E9H   000007H   BYTE   UNIT     CODE           ?PR?SILABS_STARTUP?DESPERATE_FIREFLY_MAIN
-0000EAH   0000F0H   000007H   BYTE   UNIT     CODE           ?C_INITSEG
-0000F1H   0000F6H   000006H   BYTE   UNIT     CODE           ?PR?ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
-0000F7H   0000FAH   000004H   BYTE   UNIT     CODE           ?PR?PORTS_1_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
-0000FBH   0000FBH   000001H   BYTE   UNIT     CODE           ?PR?PBCFG_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
+000003H   00003BH   000039H   BYTE   UNIT     CODE           ?PR?MAIN?DESPERATE_FIREFLY_MAIN
+00003CH   00004AH   00000FH   BYTE   UNIT     CODE           ?PR?ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
+00004BH   000059H   00000FH   BYTE   UNIT     CODE           ?C_C51STARTUP
+00005AH   000062H   000009H   BYTE   UNIT     CODE           ?PR?LFOSC_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
+000063H   000069H   000007H   BYTE   UNIT     CODE           ?PR?WDT_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
+00006AH   000070H   000007H   BYTE   UNIT     CODE           ?PR?SILABS_STARTUP?DESPERATE_FIREFLY_MAIN
+000071H   000074H   000004H   BYTE   UNIT     CODE           ?PR?PORTS_1_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
+000075H   000078H   000004H   BYTE   UNIT     CODE           ?PR?PBCFG_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
+000079H   00007CH   000004H   BYTE   UNIT     CODE           ?PR?CLOCK_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
+00007DH   000080H   000004H   BYTE   UNIT     CONST          ?CO?DESPERATE_FIREFLY_MAIN
 
 
 
 OVERLAY MAP OF MODULE:   DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
 
 
-LX51 LINKER/LOCATER V4.66.30.0                                                        12/03/2017  12:45:31  PAGE 2
-
-
 FUNCTION/MODULE                                BIT_GROUP   DATA_GROUP 
+LX51 LINKER/LOCATER V4.66.30.0                                                        12/15/2017  17:21:30  PAGE 2
+
+
 --> CALLED FUNCTION/MODULE                    START  STOP  START  STOP
 ======================================================================
 ?C_C51STARTUP                                 ----- -----  ----- -----
   +--> SILABS_STARTUP/DESPERATE_FIREFLY_MAIN
   +--> MAIN/DESPERATE_FIREFLY_MAIN
-  +--> ?C_INITSEG
 
 SILABS_STARTUP/DESPERATE_FIREFLY_MAIN         ----- -----  ----- -----
 
 MAIN/DESPERATE_FIREFLY_MAIN                   ----- -----  ----- -----
   +--> ENTER_DEFAULTMODE_FROM_RESET/INITDEVICE
-  +--> HARDWARE_CONFIG/DESPERATE_FIREFLY_MAIN
+  +--> ?CO?DESPERATE_FIREFLY_MAIN
 
 ENTER_DEFAULTMODE_FROM_RESET/INITDEVICE       ----- -----  ----- -----
+  +--> WDT_0_ENTER_DEFAULTMODE_FROM_RESET/INITDEVICE
   +--> PORTS_1_ENTER_DEFAULTMODE_FROM_RESET/INITDEVICE
   +--> PBCFG_0_ENTER_DEFAULTMODE_FROM_RESET/INITDEVICE
+  +--> LFOSC_0_ENTER_DEFAULTMODE_FROM_RESET/INITDEVICE
+  +--> CLOCK_0_ENTER_DEFAULTMODE_FROM_RESET/INITDEVICE
+
+WDT_0_ENTER_DEFAULTMODE_FROM_RESET/INITD+     ----- -----  ----- -----
+... EVICE
 
 PORTS_1_ENTER_DEFAULTMODE_FROM_RESET/INI+     ----- -----  ----- -----
 ... TDEVICE
@@ -91,9 +95,13 @@ PORTS_1_ENTER_DEFAULTMODE_FROM_RESET/INI+     ----- -----  ----- -----
 PBCFG_0_ENTER_DEFAULTMODE_FROM_RESET/INI+     ----- -----  ----- -----
 ... TDEVICE
 
-HARDWARE_CONFIG/DESPERATE_FIREFLY_MAIN        ----- -----  ----- -----
+LFOSC_0_ENTER_DEFAULTMODE_FROM_RESET/INI+     ----- -----  ----- -----
+... TDEVICE
 
-?C_INITSEG                                    ----- -----  ----- -----
+CLOCK_0_ENTER_DEFAULTMODE_FROM_RESET/INI+     ----- -----  ----- -----
+... TDEVICE
+
+?CO?DESPERATE_FIREFLY_MAIN                    ----- -----  ----- -----
 
 
 
@@ -104,7 +112,7 @@ PUBLIC SYMBOLS OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
       =================================================
       00000000H   NUMBER   ---       ?C?CODESEG
       00000000H   NUMBER   ---       ?C?XDATASEG
-      0100004DH   CODE     ---       ?C_START
+      01000003H   CODE     ---       ?C_START
       01000000H   CODE     NEAR LAB  ?C_STARTUP
 *SFR* 000000E0H   DATA     BYTE      ACC
 *SFR* 000000E0H   DATA     BIT       ACC_ACC0
@@ -121,6 +129,9 @@ PUBLIC SYMBOLS OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
 *SFR* 000000E8H   DATA     BYTE      ADC0CN0
 *SFR* 000000E8H.6 DATA     BIT       ADC0CN0_ADBMEN
 *SFR* 000000E8H.4 DATA     BIT       ADC0CN0_ADBUSY
+LX51 LINKER/LOCATER V4.66.30.0                                                        12/15/2017  17:21:30  PAGE 3
+
+
 *SFR* 000000E8H   DATA     BIT       ADC0CN0_ADCM0
 *SFR* 000000E8H.1 DATA     BIT       ADC0CN0_ADCM1
 *SFR* 000000E8H.2 DATA     BIT       ADC0CN0_ADCM2
@@ -129,9 +140,6 @@ PUBLIC SYMBOLS OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
 *SFR* 000000E8H.3 DATA     BIT       ADC0CN0_ADWINT
 *SFR* 000000B2H   DATA     BYTE      ADC0CN1
 *SFR* 000000C3H   DATA     WORD      ADC0GT
-LX51 LINKER/LOCATER V4.66.30.0                                                        12/03/2017  12:45:31  PAGE 3
-
-
 *SFR* 000000C4H   DATA     BYTE      ADC0GTH
 *SFR* 000000C3H   DATA     BYTE      ADC0GTL
 *SFR* 000000BEH   DATA     BYTE      ADC0H
@@ -153,6 +161,7 @@ PUBLIC SYMBOLS OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
 *SFR* 000000F0H.7 DATA     BIT       B_B7
 *SFR* 0000008EH   DATA     BYTE      CKCON0
 *SFR* 000000A9H   DATA     BYTE      CLKSEL
+      01000079H   CODE     ---       CLOCK_0_enter_DefaultMode_from_RESET
 *SFR* 0000009BH   DATA     BYTE      CMP0CN0
 *SFR* 0000009DH   DATA     BYTE      CMP0MD
 *SFR* 0000009FH   DATA     BYTE      CMP0MX
@@ -172,9 +181,8 @@ PUBLIC SYMBOLS OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
 *SFR* 00000082H   DATA     BYTE      DPL
 *SFR* 000000E6H   DATA     BYTE      EIE1
 *SFR* 000000F3H   DATA     BYTE      EIP1
-      010000F1H   CODE     ---       enter_DefaultMode_from_RESET
+      0100003CH   CODE     ---       enter_DefaultMode_from_RESET
 *SFR* 000000B7H   DATA     BYTE      FLKEY
-      010000CEH   CODE     ---       hardware_config
 *SFR* 000000C7H   DATA     BYTE      HFO0CAL
 *SFR* 000000A8H   DATA     BYTE      IE
 *SFR* 000000A8H.7 DATA     BIT       IE_EA
@@ -186,6 +194,9 @@ PUBLIC SYMBOLS OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
 *SFR* 000000A8H   DATA     BIT       IE_EX0
 *SFR* 000000A8H.2 DATA     BIT       IE_EX1
 *SFR* 000000B8H   DATA     BYTE      IP
+LX51 LINKER/LOCATER V4.66.30.0                                                        12/15/2017  17:21:30  PAGE 4
+
+
 *SFR* 000000B8H.4 DATA     BIT       IP_PS0
 *SFR* 000000B8H.6 DATA     BIT       IP_PSPI0
 *SFR* 000000B8H.1 DATA     BIT       IP_PT0
@@ -194,11 +205,9 @@ PUBLIC SYMBOLS OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
 *SFR* 000000B8H   DATA     BIT       IP_PX0
 *SFR* 000000B8H.2 DATA     BIT       IP_PX1
 *SFR* 000000E4H   DATA     BYTE      IT01CF
-LX51 LINKER/LOCATER V4.66.30.0                                                        12/03/2017  12:45:31  PAGE 4
-
-
 *SFR* 000000B1H   DATA     BYTE      LFO0CN
-      01000092H   CODE     ---       main
+      0100005AH   CODE     ---       LFOSC_0_enter_DefaultMode_from_RESET
+      01000003H   CODE     ---       main
 *SFR* 00000080H   DATA     BYTE      P0
 *SFR* 00000080H   DATA     BIT       P0_B0
 *SFR* 00000080H.1 DATA     BIT       P0_B1
@@ -231,7 +240,7 @@ PUBLIC SYMBOLS OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
 *SFR* 000000A0H   DATA     BIT       P2_B0
 *SFR* 000000A0H.1 DATA     BIT       P2_B1
 *SFR* 000000A6H   DATA     BYTE      P2MDOUT
-      010000FBH   CODE     ---       PBCFG_0_enter_DefaultMode_from_RESET
+      01000075H   CODE     ---       PBCFG_0_enter_DefaultMode_from_RESET
 *SFR* 000000F9H   DATA     WORD      PCA0
 *SFR* 0000009EH   DATA     BYTE      PCA0CENT
 *SFR* 0000009CH   DATA     BYTE      PCA0CLR
@@ -250,6 +259,9 @@ PUBLIC SYMBOLS OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
 *SFR* 000000FBH   DATA     BYTE      PCA0CPL0
 *SFR* 000000E9H   DATA     BYTE      PCA0CPL1
 *SFR* 000000EBH   DATA     BYTE      PCA0CPL2
+LX51 LINKER/LOCATER V4.66.30.0                                                        12/15/2017  17:21:30  PAGE 5
+
+
 *SFR* 000000DAH   DATA     BYTE      PCA0CPM0
 *SFR* 000000DBH   DATA     BYTE      PCA0CPM1
 *SFR* 000000DCH   DATA     BYTE      PCA0CPM2
@@ -259,10 +271,7 @@ PUBLIC SYMBOLS OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
 *SFR* 00000096H   DATA     BYTE      PCA0POL
 *SFR* 000000F7H   DATA     BYTE      PCA0PWM
 *SFR* 00000087H   DATA     BYTE      PCON0
-LX51 LINKER/LOCATER V4.66.30.0                                                        12/03/2017  12:45:31  PAGE 5
-
-
-      010000F7H   CODE     ---       PORTS_1_enter_DefaultMode_from_RESET
+      01000071H   CODE     ---       PORTS_1_enter_DefaultMode_from_RESET
 *SFR* 000000A0H   DATA     BYTE      PPAGE_SFR
 *SFR* 000000F6H   DATA     BYTE      PRTDRV
 *SFR* 0000008FH   DATA     BYTE      PSCTL
@@ -288,7 +297,7 @@ PUBLIC SYMBOLS OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
 *SFR* 00000098H.7 DATA     BIT       SCON0_SMODE
 *SFR* 00000098H.3 DATA     BIT       SCON0_TB8
 *SFR* 00000098H.1 DATA     BIT       SCON0_TI
-      010000E3H   CODE     ---       SILABS_STARTUP
+      0100006AH   CODE     ---       SILABS_STARTUP
 *SFR* 000000D6H   DATA     BYTE      SMB0ADM
 *SFR* 000000D7H   DATA     BYTE      SMB0ADR
 *SFR* 000000C1H   DATA     BYTE      SMB0CF
@@ -303,7 +312,7 @@ PUBLIC SYMBOLS OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
 *SFR* 000000C0H.6 DATA     BIT       SMB0CN0_TXMODE
 *SFR* 000000C2H   DATA     BYTE      SMB0DAT
 *SFR* 000000ACH   DATA     BYTE      SMB0TC
-      00000008H   DATA     ---       sos
+      0100007DH   CONST    ---       sos
 *SFR* 00000081H   DATA     BYTE      SP
 *SFR* 000000A1H   DATA     BYTE      SPI0CFG
 *SFR* 000000A2H   DATA     BYTE      SPI0CKR
@@ -315,6 +324,9 @@ PUBLIC SYMBOLS OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
 *SFR* 000000F8H   DATA     BIT       SPI0CN0_SPIEN
 *SFR* 000000F8H.7 DATA     BIT       SPI0CN0_SPIF
 *SFR* 000000F8H.1 DATA     BIT       SPI0CN0_TXBMT
+LX51 LINKER/LOCATER V4.66.30.0                                                        12/15/2017  17:21:30  PAGE 6
+
+
 *SFR* 000000F8H.6 DATA     BIT       SPI0CN0_WCOL
 *SFR* 000000A3H   DATA     BYTE      SPI0DAT
 *SFR* 00000088H   DATA     BYTE      TCON
@@ -324,9 +336,6 @@ PUBLIC SYMBOLS OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
 *SFR* 00000088H.2 DATA     BIT       TCON_IT1
 *SFR* 00000088H.5 DATA     BIT       TCON_TF0
 *SFR* 00000088H.7 DATA     BIT       TCON_TF1
-LX51 LINKER/LOCATER V4.66.30.0                                                        12/03/2017  12:45:31  PAGE 6
-
-
 *SFR* 00000088H.4 DATA     BIT       TCON_TR0
 *SFR* 00000088H.6 DATA     BIT       TCON_TR1
 *SFR* 0000008CH   DATA     BYTE      TH0
@@ -356,6 +365,7 @@ PUBLIC SYMBOLS OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
 *SFR* 00000093H   DATA     BYTE      TMR3RLH
 *SFR* 00000092H   DATA     BYTE      TMR3RLL
 *SFR* 000000FFH   DATA     BYTE      VDM0CN
+      01000063H   CODE     ---       WDT_0_enter_DefaultMode_from_RESET
 *SFR* 00000097H   DATA     BYTE      WDTCN
 *SFR* 000000E1H   DATA     BYTE      XBR0
 *SFR* 000000E2H   DATA     BYTE      XBR1
@@ -368,14 +378,20 @@ SYMBOL TABLE OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
       VALUE       REP       CLASS    TYPE      SYMBOL NAME
       ====================================================
       ---         MODULE    ---      ---       INITDEVICE
-      010000FBH   PUBLIC    CODE     ---       PBCFG_0_enter_DefaultMode_from_RESET
-      010000F7H   PUBLIC    CODE     ---       PORTS_1_enter_DefaultMode_from_RESET
-      010000F1H   PUBLIC    CODE     ---       enter_DefaultMode_from_RESET
+      01000079H   PUBLIC    CODE     ---       CLOCK_0_enter_DefaultMode_from_RESET
+      0100005AH   PUBLIC    CODE     ---       LFOSC_0_enter_DefaultMode_from_RESET
+      01000063H   PUBLIC    CODE     ---       WDT_0_enter_DefaultMode_from_RESET
+      01000075H   PUBLIC    CODE     ---       PBCFG_0_enter_DefaultMode_from_RESET
+      01000071H   PUBLIC    CODE     ---       PORTS_1_enter_DefaultMode_from_RESET
+      0100003CH   PUBLIC    CODE     ---       enter_DefaultMode_from_RESET
       000000A2H   SFRSYM    DATA     BYTE      SPI0CKR
       00000080H   SFRSYM    DATA     BYTE      P0
       000000D0H.2 SFRSYM    DATA     BIT       PSW_OV
       00000090H   SFRSYM    DATA     BYTE      P1
       00000097H   SFRSYM    DATA     BYTE      WDTCN
+LX51 LINKER/LOCATER V4.66.30.0                                                        12/15/2017  17:21:30  PAGE 7
+
+
       000000A0H   SFRSYM    DATA     BYTE      P2
       000000BCH   SFRSYM    DATA     BYTE      ADC0CF
       000000C8H   SFRSYM    DATA     BIT       TMR2CN0_T2XCLK
@@ -389,9 +405,6 @@ SYMBOL TABLE OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
       000000ADH   SFRSYM    DATA     BYTE      DERIVID
       000000A4H   SFRSYM    DATA     BYTE      P0MDOUT
       000000A5H   SFRSYM    DATA     BYTE      P1MDOUT
-LX51 LINKER/LOCATER V4.66.30.0                                                        12/03/2017  12:45:31  PAGE 7
-
-
       000000E8H.5 SFRSYM    DATA     BIT       ADC0CN0_ADINT
       000000CBH   SFRSYM    DATA     BYTE      TMR2RLH
       000000A6H   SFRSYM    DATA     BYTE      P2MDOUT
@@ -441,6 +454,9 @@ SYMBOL TABLE OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
       000000C8H.2 SFRSYM    DATA     BIT       TMR2CN0_TR2
       000000E0H.2 SFRSYM    DATA     BIT       ACC_ACC2
       000000E0H.3 SFRSYM    DATA     BIT       ACC_ACC3
+LX51 LINKER/LOCATER V4.66.30.0                                                        12/15/2017  17:21:30  PAGE 8
+
+
       00000081H   SFRSYM    DATA     BYTE      SP
       0000009DH   SFRSYM    DATA     BYTE      CMP0MD
       000000E0H.4 SFRSYM    DATA     BIT       ACC_ACC4
@@ -454,9 +470,6 @@ SYMBOL TABLE OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
       000000D8H.2 SFRSYM    DATA     BIT       PCA0CN0_CCF2
       000000E0H.7 SFRSYM    DATA     BIT       ACC_ACC7
       00000094H   SFRSYM    DATA     WORD      TMR3
-LX51 LINKER/LOCATER V4.66.30.0                                                        12/03/2017  12:45:31  PAGE 8
-
-
       000000C0H.3 SFRSYM    DATA     BIT       SMB0CN0_ACKRQ
       000000FFH   SFRSYM    DATA     BYTE      VDM0CN
       000000F1H   SFRSYM    DATA     BYTE      P0MDIN
@@ -506,6 +519,9 @@ SYMBOL TABLE OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
       000000E9H   SFRSYM    DATA     WORD      PCA0CP1
       000000EBH   SFRSYM    DATA     WORD      PCA0CP2
       000000CEH   SFRSYM    DATA     BYTE      CRC0CN0
+LX51 LINKER/LOCATER V4.66.30.0                                                        12/15/2017  17:21:30  PAGE 9
+
+
       0000008CH   SFRSYM    DATA     BYTE      TH0
       000000B8H.4 SFRSYM    DATA     BIT       IP_PS0
       0000008DH   SFRSYM    DATA     BYTE      TH1
@@ -519,9 +535,6 @@ SYMBOL TABLE OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
       000000D0H.5 SFRSYM    DATA     BIT       PSW_F0
       000000A8H.6 SFRSYM    DATA     BIT       IE_ESPI0
       0000008BH   SFRSYM    DATA     BYTE      TL1
-LX51 LINKER/LOCATER V4.66.30.0                                                        12/03/2017  12:45:31  PAGE 9
-
-
       000000F9H   SFRSYM    DATA     BYTE      PCA0L
       000000C0H   SFRSYM    DATA     BIT       SMB0CN0_SI
       000000D0H.1 SFRSYM    DATA     BIT       PSW_F1
@@ -571,6 +584,9 @@ SYMBOL TABLE OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
       00000088H   SFRSYM    DATA     BIT       TCON_IT0
       000000E8H.1 SFRSYM    DATA     BIT       ADC0CN0_ADCM1
       000000EFH   SFRSYM    DATA     BYTE      RSTSRC
+LX51 LINKER/LOCATER V4.66.30.0                                                        12/15/2017  17:21:30  PAGE 10
+
+
       000000FDH   SFRSYM    DATA     BYTE      P0MAT
       000000DEH   SFRSYM    DATA     BYTE      CRC0DAT
       00000088H.2 SFRSYM    DATA     BIT       TCON_IT1
@@ -584,9 +600,6 @@ SYMBOL TABLE OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
       000000C5H   SFRSYM    DATA     BYTE      ADC0LTL
       000000F8H.5 SFRSYM    DATA     BIT       SPI0CN0_MODF
       000000B8H.6 SFRSYM    DATA     BIT       IP_PSPI0
-LX51 LINKER/LOCATER V4.66.30.0                                                        12/03/2017  12:45:31  PAGE 10
-
-
       0000009CH   SFRSYM    DATA     BYTE      PCA0CLR
       000000C8H   SFRSYM    DATA     BYTE      TMR2CN0
       00000091H   SFRSYM    DATA     BYTE      TMR3CN0
@@ -618,21 +631,48 @@ SYMBOL TABLE OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
       000000B7H   SFRSYM    DATA     BYTE      FLKEY
       000000B3H   SFRSYM    DATA     BYTE      ADC0AC
 
-      010000F1H   BLOCK     CODE     ---       LVL=0
-      010000F1H   LINE      CODE     ---       #22
-      010000F1H   LINE      CODE     ---       #24
-      010000F4H   LINE      CODE     ---       #25
+      0100003CH   BLOCK     CODE     ---       LVL=0
+      0100003CH   LINE      CODE     ---       #22
+      0100003CH   LINE      CODE     ---       #24
+      0100003FH   LINE      CODE     ---       #25
+      01000042H   LINE      CODE     ---       #26
+      01000045H   LINE      CODE     ---       #27
+      01000048H   LINE      CODE     ---       #28
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010000F7H   BLOCK     CODE     ---       LVL=0
-      010000F7H   LINE      CODE     ---       #30
-      010000F7H   LINE      CODE     ---       #47
-      010000FAH   LINE      CODE     ---       #57
+      01000071H   BLOCK     CODE     ---       LVL=0
+      01000071H   LINE      CODE     ---       #33
+      01000071H   LINE      CODE     ---       #50
+      01000074H   LINE      CODE     ---       #60
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010000FBH   BLOCK     CODE     ---       LVL=0
-      010000FBH   LINE      CODE     ---       #59
-      010000FBH   LINE      CODE     ---       #72
+      01000075H   BLOCK     CODE     ---       LVL=0
+      01000075H   LINE      CODE     ---       #62
+      01000075H   LINE      CODE     ---       #68
+LX51 LINKER/LOCATER V4.66.30.0                                                        12/15/2017  17:21:30  PAGE 11
+
+
+      01000078H   LINE      CODE     ---       #80
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      01000063H   BLOCK     CODE     ---       LVL=0
+      01000063H   LINE      CODE     ---       #82
+      01000063H   LINE      CODE     ---       #85
+      01000066H   LINE      CODE     ---       #86
+      01000069H   LINE      CODE     ---       #89
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      0100005AH   BLOCK     CODE     ---       LVL=0
+      0100005AH   LINE      CODE     ---       #91
+      0100005AH   LINE      CODE     ---       #96
+      0100005DH   LINE      CODE     ---       #100
+      01000062H   LINE      CODE     ---       #104
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      01000079H   BLOCK     CODE     ---       LVL=0
+      01000079H   LINE      CODE     ---       #106
+      01000079H   LINE      CODE     ---       #112
+      0100007CH   LINE      CODE     ---       #115
       ---         BLOCKEND  ---      ---       LVL=0
 
       ---         MODULE    ---      ---       ?C_STARTUP
@@ -646,17 +686,14 @@ SYMBOL TABLE OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
       00000000H   SYMBOL    NUMBER   ---       IBPSTACK
       00000100H   SYMBOL    NUMBER   ---       IBPSTACKTOP
       00000080H   SYMBOL    NUMBER   ---       IDATALEN
-      01000009H   SYMBOL    CODE     NEAR LAB  IDATALOOP
+      01000051H   SYMBOL    CODE     NEAR LAB  IDATALOOP
       00000000H   SYMBOL    NUMBER   ---       PBPSTACK
       00000100H   SYMBOL    NUMBER   ---       PBPSTACKTOP
-LX51 LINKER/LOCATER V4.66.30.0                                                        12/03/2017  12:45:31  PAGE 11
-
-
       00000000H   SYMBOL    NUMBER   ---       PDATALEN
       00000000H   SYMBOL    NUMBER   ---       PDATASTART
       00000000H   SYMBOL    NUMBER   ---       PPAGE
       00000000H   SYMBOL    NUMBER   ---       PPAGEENABLE
-      01000003H   SYMBOL    CODE     NEAR LAB  STARTUP1
+      0100004BH   SYMBOL    CODE     NEAR LAB  STARTUP1
       00000000H   SYMBOL    NUMBER   ---       XBPSTACK
       00010000H   SYMBOL    NUMBER   ---       XBPSTACKTOP
       00000000H   SYMBOL    NUMBER   ---       XDATALEN
@@ -666,21 +703,23 @@ SYMBOL TABLE OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
       01000000H   LINE      CODE     ---       #126
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01000003H   BLOCK     CODE     NEAR LAB  LVL=0
-      01000003H   LINE      CODE     ---       #134
-      01000006H   LINE      CODE     ---       #138
-      01000008H   LINE      CODE     ---       #139
-      01000009H   LINE      CODE     ---       #140
-      0100000AH   LINE      CODE     ---       #141
-      0100000CH   LINE      CODE     ---       #190
-      0100000FH   LINE      CODE     ---       #201
+      0100004BH   BLOCK     CODE     NEAR LAB  LVL=0
+      0100004BH   LINE      CODE     ---       #134
+      0100004EH   LINE      CODE     ---       #138
+      01000050H   LINE      CODE     ---       #139
+      01000051H   LINE      CODE     ---       #140
+      01000052H   LINE      CODE     ---       #141
+      01000054H   LINE      CODE     ---       #190
+      01000057H   LINE      CODE     ---       #201
       ---         BLOCKEND  ---      ---       LVL=0
 
       ---         MODULE    ---      ---       DESPERATE_FIREFLY_MAIN
-      00000008H   PUBLIC    DATA     ---       sos
-      01000092H   PUBLIC    CODE     ---       main
-      010000CEH   PUBLIC    CODE     ---       hardware_config
-      010000E3H   PUBLIC    CODE     ---       SiLabs_Startup
+LX51 LINKER/LOCATER V4.66.30.0                                                        12/15/2017  17:21:30  PAGE 12
+
+
+      0100007DH   PUBLIC    CONST    ---       sos
+      01000003H   PUBLIC    CODE     ---       main
+      0100006AH   PUBLIC    CODE     ---       SiLabs_Startup
       000000A2H   SFRSYM    DATA     BYTE      SPI0CKR
       00000080H   SFRSYM    DATA     BYTE      P0
       000000D0H.2 SFRSYM    DATA     BIT       PSW_OV
@@ -714,9 +753,6 @@ SYMBOL TABLE OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
       000000F0H   SFRSYM    DATA     BIT       B_B0
       00000082H   SFRSYM    DATA     WORD      DP
       000000ECH   SFRSYM    DATA     BYTE      PCA0CPH2
-LX51 LINKER/LOCATER V4.66.30.0                                                        12/03/2017  12:45:31  PAGE 12
-
-
       000000F0H.1 SFRSYM    DATA     BIT       B_B1
       000000C3H   SFRSYM    DATA     WORD      ADC0GT
       000000F0H.2 SFRSYM    DATA     BIT       B_B2
@@ -743,6 +779,9 @@ SYMBOL TABLE OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
       000000E3H   SFRSYM    DATA     BYTE      XBR2
       000000BBH   SFRSYM    DATA     BYTE      ADC0MX
       000000E0H   SFRSYM    DATA     BIT       ACC_ACC0
+LX51 LINKER/LOCATER V4.66.30.0                                                        12/15/2017  17:21:30  PAGE 13
+
+
       000000D1H   SFRSYM    DATA     BYTE      REF0CN
       0000008EH   SFRSYM    DATA     BYTE      CKCON0
       000000E0H.1 SFRSYM    DATA     BIT       ACC_ACC1
@@ -779,9 +818,6 @@ SYMBOL TABLE OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
       000000F8H.4 SFRSYM    DATA     BIT       SPI0CN0_RXOVRN
       000000D0H.4 SFRSYM    DATA     BIT       PSW_RS1
       000000E8H.7 SFRSYM    DATA     BIT       ADC0CN0_ADEN
-LX51 LINKER/LOCATER V4.66.30.0                                                        12/03/2017  12:45:31  PAGE 13
-
-
       00000089H   SFRSYM    DATA     BYTE      TMOD
       00000088H   SFRSYM    DATA     BYTE      TCON
       000000CFH   SFRSYM    DATA     BYTE      CRC0FLIP
@@ -808,6 +844,9 @@ SYMBOL TABLE OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
       000000D2H   SFRSYM    DATA     BYTE      CRC0AUTO
       000000E8H.6 SFRSYM    DATA     BIT       ADC0CN0_ADBMEN
       000000CAH   SFRSYM    DATA     WORD      TMR2RL
+LX51 LINKER/LOCATER V4.66.30.0                                                        12/15/2017  17:21:30  PAGE 14
+
+
       000000BDH   SFRSYM    DATA     BYTE      ADC0L
       00000092H   SFRSYM    DATA     WORD      TMR3RL
       000000D8H   SFRSYM    DATA     BYTE      PCA0CN0
@@ -844,9 +883,6 @@ SYMBOL TABLE OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
       00000080H.2 SFRSYM    DATA     BIT       P0_B2
       000000BFH   SFRSYM    DATA     BYTE      CMP1CN0
       00000088H.3 SFRSYM    DATA     BIT       TCON_IE1
-LX51 LINKER/LOCATER V4.66.30.0                                                        12/03/2017  12:45:31  PAGE 14
-
-
       000000A0H.1 SFRSYM    DATA     BIT       P2_B1
       00000090H.2 SFRSYM    DATA     BIT       P1_B2
       00000080H.3 SFRSYM    DATA     BIT       P0_B3
@@ -873,6 +909,9 @@ SYMBOL TABLE OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
       00000088H.7 SFRSYM    DATA     BIT       TCON_TF1
       00000099H   SFRSYM    DATA     BYTE      SBUF0
       00000087H   SFRSYM    DATA     BYTE      PCON0
+LX51 LINKER/LOCATER V4.66.30.0                                                        12/15/2017  17:21:30  PAGE 15
+
+
       000000C3H   SFRSYM    DATA     BYTE      ADC0GTL
       000000C8H.6 SFRSYM    DATA     BIT       TMR2CN0_TF2L
       00000098H.1 SFRSYM    DATA     BIT       SCON0_TI
@@ -909,9 +948,6 @@ SYMBOL TABLE OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
       00000096H   SFRSYM    DATA     BYTE      PCA0POL
       000000CCH   SFRSYM    DATA     BYTE      TMR2L
       000000F8H.7 SFRSYM    DATA     BIT       SPI0CN0_SPIF
-LX51 LINKER/LOCATER V4.66.30.0                                                        12/03/2017  12:45:31  PAGE 15
-
-
       00000094H   SFRSYM    DATA     BYTE      TMR3L
       000000DFH   SFRSYM    DATA     BYTE      ADC0PWR
       000000A8H.7 SFRSYM    DATA     BIT       IE_EA
@@ -928,48 +964,36 @@ SYMBOL TABLE OF MODULE:  DESPERATE_FIREFLY.OMF.CRBUILD (INITDEVICE)
       000000B7H   SFRSYM    DATA     BYTE      FLKEY
       000000B3H   SFRSYM    DATA     BYTE      ADC0AC
 
-      010000E3H   BLOCK     CODE     ---       LVL=0
-      010000E3H   LINE      CODE     ---       #25
-      010000E3H   LINE      CODE     ---       #26
-      010000E3H   LINE      CODE     ---       #27
-      010000E6H   LINE      CODE     ---       #28
-      010000E9H   LINE      CODE     ---       #29
+      0100006AH   BLOCK     CODE     ---       LVL=0
+      0100006AH   LINE      CODE     ---       #25
+      0100006AH   LINE      CODE     ---       #26
+      0100006AH   LINE      CODE     ---       #27
+      0100006DH   LINE      CODE     ---       #28
+      01000070H   LINE      CODE     ---       #29
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010000CEH   BLOCK     CODE     ---       LVL=0
-      010000CEH   LINE      CODE     ---       #31
-      010000CEH   LINE      CODE     ---       #34
-      010000D1H   LINE      CODE     ---       #36
-      010000D4H   LINE      CODE     ---       #38
-      010000D7H   LINE      CODE     ---       #42
-      010000DAH   LINE      CODE     ---       #44
-      010000DFH   LINE      CODE     ---       #48
-      010000E2H   LINE      CODE     ---       #50
-      ---         BLOCKEND  ---      ---       LVL=0
+      01000003H   BLOCK     CODE     ---       LVL=0
+      01000003H   BLOCK     CODE     NEAR LAB  LVL=1
+LX51 LINKER/LOCATER V4.66.30.0                                                        12/15/2017  17:21:30  PAGE 16
 
-      01000092H   BLOCK     CODE     ---       LVL=0
-      01000092H   BLOCK     CODE     NEAR LAB  LVL=1
+
       00000007H   SYMBOL    DATA     BYTE      b
       00000006H   SYMBOL    DATA     BYTE      c
       ---         BLOCKEND  ---      ---       LVL=1
-      01000092H   LINE      CODE     ---       #59
-      01000092H   LINE      CODE     ---       #60
-      01000092H   LINE      CODE     ---       #64
-      01000095H   LINE      CODE     ---       #65
-      01000098H   LINE      CODE     ---       #66
-      0100009AH   LINE      CODE     ---       #67
-      0100009AH   LINE      CODE     ---       #68
-      0100009AH   LINE      CODE     ---       #69
-      010000BBH   LINE      CODE     ---       #70
-      010000BCH   LINE      CODE     ---       #71
-      010000C1H   LINE      CODE     ---       #72
-      010000C4H   LINE      CODE     ---       #73
-      010000C9H   LINE      CODE     ---       #75
-      010000CCH   LINE      CODE     ---       #76
+      01000003H   LINE      CODE     ---       #37
+      01000003H   LINE      CODE     ---       #38
+      01000003H   LINE      CODE     ---       #42
+      01000006H   LINE      CODE     ---       #43
+      01000008H   LINE      CODE     ---       #44
+      01000008H   LINE      CODE     ---       #45
+      01000008H   LINE      CODE     ---       #46
+      01000029H   LINE      CODE     ---       #47
+      0100002AH   LINE      CODE     ---       #48
+      0100002FH   LINE      CODE     ---       #49
+      01000032H   LINE      CODE     ---       #50
+      01000037H   LINE      CODE     ---       #52
+      0100003AH   LINE      CODE     ---       #53
       ---         BLOCKEND  ---      ---       LVL=0
 
-      ---         MODULE    ---      ---       ?C_INIT
-      0100004DH   PUBLIC    CODE     ---       ?C_START
-
-Program Size: data=13.0 xdata=0 const=0 code=252
+Program Size: data=9.0 xdata=0 const=4 code=125
 LX51 RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="ASCII"?>
 <device:XMLDevice xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:device="http://www.silabs.com/ss/hwconfig/document/device.ecore" name="EFM8BB10F8G-A-SOIC16" partId="mcu.8051.efm8.bb1.efm8bb10f8g-a-soic16" version="4.0.1" contextId="%DEFAULT%">
   <mode name="DefaultMode">
+    <property object="CLOCK_0" propertyId="ABPeripheral.included" value="true"/>
+    <property object="CLOCK_0" propertyId="clock.clockselect.clocksourcedivider" value="SYSCLK / 32"/>
+    <property object="CLOCK_0" propertyId="clock.clockselect.lfosc" value="10.000 kHz"/>
+    <property object="CLOCK_0" propertyId="clock.clockselect.selectclocksource" value="Low-Frequency Oscillator"/>
+    <property object="CLOCK_0" propertyId="clock.clockselect.sysclk" value="312.000 Hz"/>
     <property object="DefaultMode" propertyId="mode.diagramLocation" value="100, 100"/>
+    <property object="LFOSC_0" propertyId="ABPeripheral.included" value="true"/>
+    <property object="LFOSC_0" propertyId="lfosc.lowfrequencyoscillatorcontrol.enableinternallfoscillator" value="Enabled"/>
     <property object="P1.3" propertyId="ports.settings.label" value="LED_PIN"/>
     <property object="P1.3" propertyId="ports.settings.skip" value="Skipped"/>
+    <property object="PBCFG_0" propertyId="pbcfg.settings.enablecrossbar" value="Enabled"/>
+    <property object="WDT_0" propertyId="ABPeripheral.included" value="true"/>
+    <property object="WDT_0" propertyId="wdt.watchdogcontrol.wdtenable" value="Disable"/>
+    <property object="WDT_0" propertyId="wdt.watchdogcontrol.wdtinitialvalue" value="5"/>
+    <property object="WDT_0" propertyId="wdt.watchdogcontrol.wdtperiodactual" value="6.554 s"/>
   </mode>
   <modeTransition>
     <property object="RESET &#x2192; DefaultMode" propertyId="modeTransition.source" value="RESET"/>

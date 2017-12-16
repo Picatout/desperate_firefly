@@ -21,8 +21,11 @@
 //==============================================================================
 extern void enter_DefaultMode_from_RESET(void) {
 	// $[Config Calls]
+	WDT_0_enter_DefaultMode_from_RESET();
 	PORTS_1_enter_DefaultMode_from_RESET();
 	PBCFG_0_enter_DefaultMode_from_RESET();
+	LFOSC_0_enter_DefaultMode_from_RESET();
+	CLOCK_0_enter_DefaultMode_from_RESET();
 	// [Config Calls]$
 
 }
@@ -58,6 +61,11 @@ extern void PORTS_1_enter_DefaultMode_from_RESET(void) {
 
 extern void PBCFG_0_enter_DefaultMode_from_RESET(void) {
 	// $[XBR2 - Port I/O Crossbar 2]
+	/***********************************************************************
+	 - Weak Pullups enabled 
+	 - Crossbar enabled
+	 ***********************************************************************/
+	XBR2 = XBR2_WEAKPUD__PULL_UPS_ENABLED | XBR2_XBARE__ENABLED;
 	// [XBR2 - Port I/O Crossbar 2]$
 
 	// $[PRTDRV - Port Drive Strength]
@@ -68,6 +76,41 @@ extern void PBCFG_0_enter_DefaultMode_from_RESET(void) {
 
 	// $[XBR1 - Port I/O Crossbar 1]
 	// [XBR1 - Port I/O Crossbar 1]$
+
+}
+
+extern void WDT_0_enter_DefaultMode_from_RESET(void) {
+	// $[WDTCN - Watchdog Timer Control]
+	//Disable Watchdog with key sequence
+	WDTCN = 0xDE; //First key
+	WDTCN = 0xAD; //Second key
+	// [WDTCN - Watchdog Timer Control]$
+
+}
+
+extern void LFOSC_0_enter_DefaultMode_from_RESET(void) {
+	// $[LFO0CN - Low Frequency Oscillator Control]
+	/***********************************************************************
+	 - Internal L-F Oscillator Enabled
+	 ***********************************************************************/
+	LFO0CN |= LFO0CN_OSCLEN__ENABLED;
+	// [LFO0CN - Low Frequency Oscillator Control]$
+
+	// $[Wait for LFOSC Ready]
+	while ((LFO0CN & LFO0CN_OSCLRDY__BMASK) != LFO0CN_OSCLRDY__SET)
+		;
+	// [Wait for LFOSC Ready]$
+
+}
+
+extern void CLOCK_0_enter_DefaultMode_from_RESET(void) {
+	// $[CLKSEL - Clock Select]
+	/***********************************************************************
+	 - Clock derived from the Internal Low-Frequency Oscillator
+	 - SYSCLK is equal to selected clock source divided by 32
+	 ***********************************************************************/
+	CLKSEL = CLKSEL_CLKSL__LFOSC | CLKSEL_CLKDIV__SYSCLK_DIV_32;
+	// [CLKSEL - Clock Select]$
 
 }
 
