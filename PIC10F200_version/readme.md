@@ -11,21 +11,10 @@ The PIC10F200 is the simplest MCU available on market
 
 1 ~RST/input pin
 
-256 bytes FLASH
+256 12 bits words of FLASH
 
 16 bytes RAM
 
 That's all there in it.
 
-schematic
----------
-
-                PIC10F200
-              +-------------+
-            1-|N/C      ~RST|- 8 
-        +3v-2-|Vdd       Vss|- 7-GND  
-+3v-LED-1K -3-|GP2       N/C|- 6 
-            4-|GP1       GP0|- 5
-              +-------------+
-				
-				
+The LED cathode is connected to GP2 with 1K current limiter resistor is serie.
