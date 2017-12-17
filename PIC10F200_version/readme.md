@@ -19,12 +19,12 @@ That's all there in it.
 
 schematic
 ---------
-                  PIC10F200
+                                  PIC10F200
 				+-------------+
-			  1-|N/C      ~RST|- 8 
-		  +3v-2-|Vdd       Vss|- 7-GND  
-  +3v-LED-1K -3-|GP2       N/C|- 6 
-	          4-|GP1       GP0|- 5
+			      1-|N/C      ~RST|- 8 
+		          +3v-2-|Vdd       Vss|- 7-GND  
+                  +3v-LED-1K -3-|GP2       N/C|- 6 
+	                      4-|GP1       GP0|- 5
 				+-------------+
 				
 				
