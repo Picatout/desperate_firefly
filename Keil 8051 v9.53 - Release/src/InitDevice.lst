@@ -1,4 +1,4 @@
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        12/15/2017 17:18:50 PAGE 1   
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        12/16/2017 14:09:00 PAGE 1   
 
 
 C51 COMPILER V9.53.0.0, COMPILATION OF MODULE INITDEVICE
@@ -6,8 +6,8 @@ OBJECT MODULE PLACED IN .\src\InitDevice.OBJ
 COMPILER INVOKED BY: c:\SiliconLabs\SimplicityStudio\v4\developer\toolchains\keil_8051\9.53\BIN\C51.exe C:\Users\Jacques
                     -\SimplicityStudio\v4_workspace\desperate_firefly\src\InitDevice.c OMF2 SMALL DEBUG OBJECTEXTEND ROM(LARGE) WARNINGLEVEL(
                     -2) FLOATFUZZY(3) OPTIMIZE(9,SPEED) DEFINE(NDEBUG=1) INTVECTOR(0X0000) INTPROMOTE INCDIR(C:\Users\Jacques\SimplicityStudi
-                    -o\v4_workspace\desperate_firefly\inc;C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/v4.0.8//Device/shared/si8051
-                    -base;C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/v4.0.8//Device/EFM8BB1/inc) REGFILE(desperate_firefly.ORC) P
+                    -o\v4_workspace\desperate_firefly\inc;C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/v4.1.0//Device/shared/si8051
+                    -base;C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/v4.1.0//Device/EFM8BB1/inc) REGFILE(desperate_firefly.ORC) P
                     -RINT(.\src\InitDevice.lst) COND CODE PAGEWIDTH(120) PAGELENGTH(65) OBJECT(.\src\InitDevice.OBJ)
 
 line level    source
@@ -35,104 +35,225 @@ line level    source
   21          //==============================================================================
   22          extern void enter_DefaultMode_from_RESET(void) {
   23   1              // $[Config Calls]
-  24   1              WDT_0_enter_DefaultMode_from_RESET();
-  25   1              PORTS_1_enter_DefaultMode_from_RESET();
-  26   1              PBCFG_0_enter_DefaultMode_from_RESET();
-  27   1              LFOSC_0_enter_DefaultMode_from_RESET();
-  28   1              CLOCK_0_enter_DefaultMode_from_RESET();
-  29   1              // [Config Calls]$
-  30   1      
-  31   1      }
-  32          
-  33          extern void PORTS_1_enter_DefaultMode_from_RESET(void) {
-  34   1              // $[P1 - Port 1 Pin Latch]
-  35   1              // [P1 - Port 1 Pin Latch]$
-  36   1      
-  37   1              // $[P1MDOUT - Port 1 Output Mode]
-  38   1              // [P1MDOUT - Port 1 Output Mode]$
-  39   1      
-  40   1              // $[P1MDIN - Port 1 Input Mode]
-  41   1              // [P1MDIN - Port 1 Input Mode]$
-  42   1      
-  43   1              // $[P1SKIP - Port 1 Skip]
-  44   1              /***********************************************************************
-  45   1               - P1.0 pin is not skipped by the crossbar
-  46   1               - P1.1 pin is not skipped by the crossbar
-  47   1               - P1.2 pin is not skipped by the crossbar
-  48   1               - P1.3 pin is skipped by the crossbar
-  49   1               ***********************************************************************/
-  50   1              P1SKIP = P1SKIP_B0__NOT_SKIPPED | P1SKIP_B1__NOT_SKIPPED
-  51   1                              | P1SKIP_B2__NOT_SKIPPED | P1SKIP_B3__SKIPPED;
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        12/15/2017 17:18:50 PAGE 2   
+  24   1              PORTS_1_enter_DefaultMode_from_RESET();
+  25   1              PBCFG_0_enter_DefaultMode_from_RESET();
+  26   1              LFOSC_0_enter_DefaultMode_from_RESET();
+  27   1              CLOCK_0_enter_DefaultMode_from_RESET();
+  28   1              TIMER01_0_enter_DefaultMode_from_RESET();
+  29   1              TIMER_SETUP_0_enter_DefaultMode_from_RESET();
+  30   1              INTERRUPT_0_enter_DefaultMode_from_RESET();
+  31   1              // [Config Calls]$
+  32   1      
+  33   1      }
+  34          
+  35          extern void PORTS_1_enter_DefaultMode_from_RESET(void) {
+  36   1              // $[P1 - Port 1 Pin Latch]
+  37   1              // [P1 - Port 1 Pin Latch]$
+  38   1      
+  39   1              // $[P1MDOUT - Port 1 Output Mode]
+  40   1              // [P1MDOUT - Port 1 Output Mode]$
+  41   1      
+  42   1              // $[P1MDIN - Port 1 Input Mode]
+  43   1              // [P1MDIN - Port 1 Input Mode]$
+  44   1      
+  45   1              // $[P1SKIP - Port 1 Skip]
+  46   1              /***********************************************************************
+  47   1               - P1.0 pin is not skipped by the crossbar
+  48   1               - P1.1 pin is not skipped by the crossbar
+  49   1               - P1.2 pin is not skipped by the crossbar
+  50   1               - P1.3 pin is skipped by the crossbar
+  51   1               ***********************************************************************/
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        12/16/2017 14:09:00 PAGE 2   
 
-  52   1              // [P1SKIP - Port 1 Skip]$
-  53   1      
-  54   1              // $[P1MASK - Port 1 Mask]
-  55   1              // [P1MASK - Port 1 Mask]$
-  56   1      
-  57   1              // $[P1MAT - Port 1 Match]
-  58   1              // [P1MAT - Port 1 Match]$
-  59   1      
-  60   1      }
-  61          
-  62          extern void PBCFG_0_enter_DefaultMode_from_RESET(void) {
-  63   1              // $[XBR2 - Port I/O Crossbar 2]
-  64   1              /***********************************************************************
-  65   1               - Weak Pullups enabled 
-  66   1               - Crossbar enabled
-  67   1               ***********************************************************************/
-  68   1              XBR2 = XBR2_WEAKPUD__PULL_UPS_ENABLED | XBR2_XBARE__ENABLED;
-  69   1              // [XBR2 - Port I/O Crossbar 2]$
-  70   1      
-  71   1              // $[PRTDRV - Port Drive Strength]
-  72   1              // [PRTDRV - Port Drive Strength]$
-  73   1      
-  74   1              // $[XBR0 - Port I/O Crossbar 0]
-  75   1              // [XBR0 - Port I/O Crossbar 0]$
-  76   1      
-  77   1              // $[XBR1 - Port I/O Crossbar 1]
-  78   1              // [XBR1 - Port I/O Crossbar 1]$
-  79   1      
-  80   1      }
-  81          
-  82          extern void WDT_0_enter_DefaultMode_from_RESET(void) {
-  83   1              // $[WDTCN - Watchdog Timer Control]
-  84   1              //Disable Watchdog with key sequence
-  85   1              WDTCN = 0xDE; //First key
-  86   1              WDTCN = 0xAD; //Second key
-  87   1              // [WDTCN - Watchdog Timer Control]$
-  88   1      
-  89   1      }
-  90          
-  91          extern void LFOSC_0_enter_DefaultMode_from_RESET(void) {
-  92   1              // $[LFO0CN - Low Frequency Oscillator Control]
-  93   1              /***********************************************************************
-  94   1               - Internal L-F Oscillator Enabled
-  95   1               ***********************************************************************/
-  96   1              LFO0CN |= LFO0CN_OSCLEN__ENABLED;
-  97   1              // [LFO0CN - Low Frequency Oscillator Control]$
-  98   1      
-  99   1              // $[Wait for LFOSC Ready]
- 100   1              while ((LFO0CN & LFO0CN_OSCLRDY__BMASK) != LFO0CN_OSCLRDY__SET)
- 101   1                      ;
- 102   1              // [Wait for LFOSC Ready]$
- 103   1      
- 104   1      }
- 105          
- 106          extern void CLOCK_0_enter_DefaultMode_from_RESET(void) {
- 107   1              // $[CLKSEL - Clock Select]
- 108   1              /***********************************************************************
- 109   1               - Clock derived from the Internal Low-Frequency Oscillator
- 110   1               - SYSCLK is equal to selected clock source divided by 32
- 111   1               ***********************************************************************/
- 112   1              CLKSEL = CLKSEL_CLKSL__LFOSC | CLKSEL_CLKDIV__SYSCLK_DIV_32;
- 113   1              // [CLKSEL - Clock Select]$
- 114   1      
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        12/15/2017 17:18:50 PAGE 3   
+  52   1              P1SKIP = P1SKIP_B0__NOT_SKIPPED | P1SKIP_B1__NOT_SKIPPED
+  53   1                              | P1SKIP_B2__NOT_SKIPPED | P1SKIP_B3__SKIPPED;
+  54   1              // [P1SKIP - Port 1 Skip]$
+  55   1      
+  56   1              // $[P1MASK - Port 1 Mask]
+  57   1              // [P1MASK - Port 1 Mask]$
+  58   1      
+  59   1              // $[P1MAT - Port 1 Match]
+  60   1              // [P1MAT - Port 1 Match]$
+  61   1      
+  62   1      }
+  63          
+  64          extern void PBCFG_0_enter_DefaultMode_from_RESET(void) {
+  65   1              // $[XBR2 - Port I/O Crossbar 2]
+  66   1              /***********************************************************************
+  67   1               - Weak Pullups enabled 
+  68   1               - Crossbar enabled
+  69   1               ***********************************************************************/
+  70   1              XBR2 = XBR2_WEAKPUD__PULL_UPS_ENABLED | XBR2_XBARE__ENABLED;
+  71   1              // [XBR2 - Port I/O Crossbar 2]$
+  72   1      
+  73   1              // $[PRTDRV - Port Drive Strength]
+  74   1              // [PRTDRV - Port Drive Strength]$
+  75   1      
+  76   1              // $[XBR0 - Port I/O Crossbar 0]
+  77   1              // [XBR0 - Port I/O Crossbar 0]$
+  78   1      
+  79   1              // $[XBR1 - Port I/O Crossbar 1]
+  80   1              // [XBR1 - Port I/O Crossbar 1]$
+  81   1      
+  82   1      }
+  83          
+  84          extern void WDT_0_enter_DefaultMode_from_RESET(void) {
+  85   1              // $[WDTCN - Watchdog Timer Control]
+  86   1              //Disable Watchdog with key sequence
+  87   1              WDTCN = 0xDE; //First key
+  88   1              WDTCN = 0xAD; //Second key
+  89   1              // [WDTCN - Watchdog Timer Control]$
+  90   1      
+  91   1      }
+  92          
+  93          extern void LFOSC_0_enter_DefaultMode_from_RESET(void) {
+  94   1              // $[LFO0CN - Low Frequency Oscillator Control]
+  95   1              /***********************************************************************
+  96   1               - Internal L-F Oscillator Enabled
+  97   1               - Divide by 2 selected
+  98   1               ***********************************************************************/
+  99   1              LFO0CN &= ~LFO0CN_OSCLD__FMASK;
+ 100   1              LFO0CN |= LFO0CN_OSCLEN__ENABLED | LFO0CN_OSCLD__DIVIDE_BY_2;
+ 101   1              // [LFO0CN - Low Frequency Oscillator Control]$
+ 102   1              // $[Wait for LFOSC Ready]
+ 103   1              while ((LFO0CN & LFO0CN_OSCLRDY__BMASK) != LFO0CN_OSCLRDY__SET)
+ 104   1                      ;
+ 105   1              // [Wait for LFOSC Ready]$
+ 106   1      
+ 107   1      }
+ 108          
+ 109          extern void CLOCK_0_enter_DefaultMode_from_RESET(void) {
+ 110   1              // $[CLKSEL - Clock Select]
+ 111   1              /***********************************************************************
+ 112   1               - Clock derived from the Internal Low-Frequency Oscillator
+ 113   1               - SYSCLK is equal to selected clock source divided by 8
+ 114   1               ***********************************************************************/
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        12/16/2017 14:09:00 PAGE 3   
 
- 115   1      }
- 116          
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        12/15/2017 17:18:50 PAGE 4   
+ 115   1              CLKSEL = CLKSEL_CLKSL__LFOSC | CLKSEL_CLKDIV__SYSCLK_DIV_8;
+ 116   1              // [CLKSEL - Clock Select]$
+ 117   1      
+ 118   1      }
+ 119          
+ 120          extern void TIMER_SETUP_0_enter_DefaultMode_from_RESET(void) {
+ 121   1              // $[CKCON0 - Clock Control 0]
+ 122   1              /***********************************************************************
+ 123   1               - System clock divided by 4
+ 124   1               - Counter/Timer 0 uses the system clock
+ 125   1               - Timer 2 high byte uses the clock defined by T2XCLK in TMR2CN0
+ 126   1               - Timer 2 low byte uses the clock defined by T2XCLK in TMR2CN0
+ 127   1               - Timer 3 high byte uses the clock defined by T3XCLK in TMR3CN0
+ 128   1               - Timer 3 low byte uses the clock defined by T3XCLK in TMR3CN0
+ 129   1               - Timer 1 uses the clock defined by the prescale field, SCA
+ 130   1               ***********************************************************************/
+ 131   1              CKCON0 = CKCON0_SCA__SYSCLK_DIV_4 | CKCON0_T0M__SYSCLK
+ 132   1                              | CKCON0_T2MH__EXTERNAL_CLOCK | CKCON0_T2ML__EXTERNAL_CLOCK
+ 133   1                              | CKCON0_T3MH__EXTERNAL_CLOCK | CKCON0_T3ML__EXTERNAL_CLOCK
+ 134   1                              | CKCON0_T1M__PRESCALE;
+ 135   1              // [CKCON0 - Clock Control 0]$
+ 136   1      
+ 137   1              // $[TMOD - Timer 0/1 Mode]
+ 138   1              /***********************************************************************
+ 139   1               - Mode 1, 16-bit Counter/Timer
+ 140   1               - Mode 0, 13-bit Counter/Timer
+ 141   1               - Timer Mode
+ 142   1               - Timer 0 enabled when TR0 = 1 irrespective of INT0 logic level
+ 143   1               - Timer Mode
+ 144   1               - Timer 1 enabled when TR1 = 1 irrespective of INT1 logic level
+ 145   1               ***********************************************************************/
+ 146   1              TMOD = TMOD_T0M__MODE1 | TMOD_T1M__MODE0 | TMOD_CT0__TIMER
+ 147   1                              | TMOD_GATE0__DISABLED | TMOD_CT1__TIMER | TMOD_GATE1__DISABLED;
+ 148   1              // [TMOD - Timer 0/1 Mode]$
+ 149   1      
+ 150   1              // $[TCON - Timer 0/1 Control]
+ 151   1              /***********************************************************************
+ 152   1               - Start Timer 0 running
+ 153   1               ***********************************************************************/
+ 154   1              TCON |= TCON_TR0__RUN;
+ 155   1              // [TCON - Timer 0/1 Control]$
+ 156   1      
+ 157   1      }
+ 158          
+ 159          extern void INTERRUPT_0_enter_DefaultMode_from_RESET(void) {
+ 160   1              // $[EIE1 - Extended Interrupt Enable 1]
+ 161   1              // [EIE1 - Extended Interrupt Enable 1]$
+ 162   1      
+ 163   1              // $[EIP1 - Extended Interrupt Priority 1]
+ 164   1              // [EIP1 - Extended Interrupt Priority 1]$
+ 165   1      
+ 166   1              // $[IE - Interrupt Enable]
+ 167   1              /***********************************************************************
+ 168   1               - Enable each interrupt according to its individual mask setting
+ 169   1               - Disable external interrupt 0
+ 170   1               - Disable external interrupt 1
+ 171   1               - Disable all SPI0 interrupts
+ 172   1               - Enable interrupt requests generated by the TF0 flag
+ 173   1               - Disable all Timer 1 interrupt
+ 174   1               - Disable Timer 2 interrupt
+ 175   1               - Disable UART0 interrupt
+ 176   1               ***********************************************************************/
+ 177   1              IE = IE_EA__ENABLED | IE_EX0__DISABLED | IE_EX1__DISABLED
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        12/16/2017 14:09:00 PAGE 4   
+
+ 178   1                              | IE_ESPI0__DISABLED | IE_ET0__ENABLED | IE_ET1__DISABLED
+ 179   1                              | IE_ET2__DISABLED | IE_ES0__DISABLED;
+ 180   1              // [IE - Interrupt Enable]$
+ 181   1      
+ 182   1              // $[IP - Interrupt Priority]
+ 183   1              /***********************************************************************
+ 184   1               - External Interrupt 0 set to low priority level
+ 185   1               - External Interrupt 1 set to low priority level
+ 186   1               - SPI0 interrupt set to low priority level
+ 187   1               - Timer 0 interrupt set to high priority level
+ 188   1               - Timer 1 interrupt set to low priority level
+ 189   1               - Timer 2 interrupt set to low priority level
+ 190   1               - UART0 interrupt set to low priority level
+ 191   1               ***********************************************************************/
+ 192   1              IP = IP_PX0__LOW | IP_PX1__LOW | IP_PSPI0__LOW | IP_PT0__HIGH | IP_PT1__LOW
+ 193   1                              | IP_PT2__LOW | IP_PS0__LOW;
+ 194   1              // [IP - Interrupt Priority]$
+ 195   1      
+ 196   1      }
+ 197          
+ 198          extern void TIMER01_0_enter_DefaultMode_from_RESET(void) {
+ 199   1              // $[Timer Initialization]
+ 200   1              //Save Timer Configuration
+ 201   1              uint8_t TCON_save;
+ 202   1              TCON_save = TCON;
+ 203   1              //Stop Timers
+ 204   1              TCON &= ~TCON_TR0__BMASK & ~TCON_TR1__BMASK;
+ 205   1      
+ 206   1              // [Timer Initialization]$
+ 207   1      
+ 208   1              // $[TH0 - Timer 0 High Byte]
+ 209   1              /***********************************************************************
+ 210   1               - Timer 0 High Byte = 0xF8
+ 211   1               ***********************************************************************/
+ 212   1              TH0 = (0xF8 << TH0_TH0__SHIFT);
+ 213   1              // [TH0 - Timer 0 High Byte]$
+ 214   1      
+ 215   1              // $[TL0 - Timer 0 Low Byte]
+ 216   1              /***********************************************************************
+ 217   1               - Timer 0 Low Byte = 0x2F
+ 218   1               ***********************************************************************/
+ 219   1              TL0 = (0x2F << TL0_TL0__SHIFT);
+ 220   1              // [TL0 - Timer 0 Low Byte]$
+ 221   1      
+ 222   1              // $[TH1 - Timer 1 High Byte]
+ 223   1              // [TH1 - Timer 1 High Byte]$
+ 224   1      
+ 225   1              // $[TL1 - Timer 1 Low Byte]
+ 226   1              // [TL1 - Timer 1 Low Byte]$
+ 227   1      
+ 228   1              // $[Timer Restoration]
+ 229   1              //Restore Timer Configuration
+ 230   1              TCON |= (TCON_save & TCON_TR0__BMASK) | (TCON_save & TCON_TR1__BMASK);
+ 231   1      
+ 232   1              // [Timer Restoration]$
+ 233   1      
+ 234   1      }
+ 235          
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        12/16/2017 14:09:00 PAGE 5   
 
 ASSEMBLY LISTING OF GENERATED OBJECT CODE
 
@@ -140,77 +261,130 @@ ASSEMBLY LISTING OF GENERATED OBJECT CODE
              ; FUNCTION enter_DefaultMode_from_RESET (BEGIN)
                                            ; SOURCE LINE # 22
                                            ; SOURCE LINE # 24
-0000 120000      R     LCALL   WDT_0_enter_DefaultMode_from_RESET
+0000 120000      R     LCALL   PORTS_1_enter_DefaultMode_from_RESET
                                            ; SOURCE LINE # 25
-0003 120000      R     LCALL   PORTS_1_enter_DefaultMode_from_RESET
+0003 120000      R     LCALL   PBCFG_0_enter_DefaultMode_from_RESET
                                            ; SOURCE LINE # 26
-0006 120000      R     LCALL   PBCFG_0_enter_DefaultMode_from_RESET
+0006 120000      R     LCALL   LFOSC_0_enter_DefaultMode_from_RESET
                                            ; SOURCE LINE # 27
-0009 120000      R     LCALL   LFOSC_0_enter_DefaultMode_from_RESET
+0009 120000      R     LCALL   CLOCK_0_enter_DefaultMode_from_RESET
                                            ; SOURCE LINE # 28
-000C 020000      R     LJMP    CLOCK_0_enter_DefaultMode_from_RESET
+000C 120000      R     LCALL   TIMER01_0_enter_DefaultMode_from_RESET
+                                           ; SOURCE LINE # 29
+000F 120000      R     LCALL   TIMER_SETUP_0_enter_DefaultMode_from_RESET
+                                           ; SOURCE LINE # 30
+0012 020000      R     LJMP    INTERRUPT_0_enter_DefaultMode_from_RESET
              ; FUNCTION enter_DefaultMode_from_RESET (END)
 
              ; FUNCTION PORTS_1_enter_DefaultMode_from_RESET (BEGIN)
-                                           ; SOURCE LINE # 33
-                                           ; SOURCE LINE # 50
+                                           ; SOURCE LINE # 35
+                                           ; SOURCE LINE # 52
 0000 75D508            MOV     P1SKIP,#08H
-                                           ; SOURCE LINE # 60
+                                           ; SOURCE LINE # 62
 0003 22                RET     
              ; FUNCTION PORTS_1_enter_DefaultMode_from_RESET (END)
 
              ; FUNCTION PBCFG_0_enter_DefaultMode_from_RESET (BEGIN)
-                                           ; SOURCE LINE # 62
-                                           ; SOURCE LINE # 68
+                                           ; SOURCE LINE # 64
+                                           ; SOURCE LINE # 70
 0000 75E340            MOV     XBR2,#040H
-                                           ; SOURCE LINE # 80
+                                           ; SOURCE LINE # 82
 0003 22                RET     
              ; FUNCTION PBCFG_0_enter_DefaultMode_from_RESET (END)
 
              ; FUNCTION WDT_0_enter_DefaultMode_from_RESET (BEGIN)
-                                           ; SOURCE LINE # 82
-                                           ; SOURCE LINE # 85
+                                           ; SOURCE LINE # 84
+                                           ; SOURCE LINE # 87
 0000 7597DE            MOV     WDTCN,#0DEH
-                                           ; SOURCE LINE # 86
+                                           ; SOURCE LINE # 88
 0003 7597AD            MOV     WDTCN,#0ADH
-                                           ; SOURCE LINE # 89
+                                           ; SOURCE LINE # 91
 0006 22                RET     
              ; FUNCTION WDT_0_enter_DefaultMode_from_RESET (END)
 
              ; FUNCTION LFOSC_0_enter_DefaultMode_from_RESET (BEGIN)
-                                           ; SOURCE LINE # 91
-                                           ; SOURCE LINE # 96
-0000 43B180            ORL     LFO0CN,#080H
-0003         ?C0005:
+                                           ; SOURCE LINE # 93
+                                           ; SOURCE LINE # 99
+0000 53B1FC            ANL     LFO0CN,#0FCH
                                            ; SOURCE LINE # 100
-0003 E5B1              MOV     A,LFO0CN
-0005 30E6FB            JNB     ACC.6,?C0005
-0008         ?C0006:
-                                           ; SOURCE LINE # 104
-0008         ?C0007:
-0008 22                RET     
+0003 43B182            ORL     LFO0CN,#082H
+0006         ?C0005:
+                                           ; SOURCE LINE # 103
+0006 E5B1              MOV     A,LFO0CN
+0008 30E6FB            JNB     ACC.6,?C0005
+000B         ?C0006:
+                                           ; SOURCE LINE # 107
+000B         ?C0007:
+000B 22                RET     
              ; FUNCTION LFOSC_0_enter_DefaultMode_from_RESET (END)
 
-             ; FUNCTION CLOCK_0_enter_DefaultMode_from_RESET (BEGIN)
-                                           ; SOURCE LINE # 106
-                                           ; SOURCE LINE # 112
-0000 75A952            MOV     CLKSEL,#052H
-                                           ; SOURCE LINE # 115
-0003 22                RET     
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        12/15/2017 17:18:50 PAGE 5   
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        12/16/2017 14:09:00 PAGE 6   
 
+             ; FUNCTION CLOCK_0_enter_DefaultMode_from_RESET (BEGIN)
+                                           ; SOURCE LINE # 109
+                                           ; SOURCE LINE # 115
+0000 75A932            MOV     CLKSEL,#032H
+                                           ; SOURCE LINE # 118
+0003 22                RET     
              ; FUNCTION CLOCK_0_enter_DefaultMode_from_RESET (END)
+
+             ; FUNCTION TIMER_SETUP_0_enter_DefaultMode_from_RESET (BEGIN)
+                                           ; SOURCE LINE # 120
+                                           ; SOURCE LINE # 131
+0000 758E05            MOV     CKCON0,#05H
+                                           ; SOURCE LINE # 146
+0003 758901            MOV     TMOD,#01H
+                                           ; SOURCE LINE # 154
+0006 438810            ORL     TCON,#010H
+                                           ; SOURCE LINE # 157
+0009 22                RET     
+             ; FUNCTION TIMER_SETUP_0_enter_DefaultMode_from_RESET (END)
+
+             ; FUNCTION INTERRUPT_0_enter_DefaultMode_from_RESET (BEGIN)
+                                           ; SOURCE LINE # 159
+                                           ; SOURCE LINE # 177
+0000 75A882            MOV     IE,#082H
+                                           ; SOURCE LINE # 192
+0003 75B802            MOV     IP,#02H
+                                           ; SOURCE LINE # 196
+0006 22                RET     
+             ; FUNCTION INTERRUPT_0_enter_DefaultMode_from_RESET (END)
+
+             ; FUNCTION TIMER01_0_enter_DefaultMode_from_RESET (BEGIN)
+                                           ; SOURCE LINE # 198
+                                           ; SOURCE LINE # 202
+;---- Variable 'TCON_save' assigned to Register 'R7' ----
+0000 AF88              MOV     R7,TCON
+                                           ; SOURCE LINE # 204
+0002 5388AF            ANL     TCON,#0AFH
+                                           ; SOURCE LINE # 212
+0005 758CF8            MOV     TH0,#0F8H
+                                           ; SOURCE LINE # 219
+0008 758A2F            MOV     TL0,#02FH
+                                           ; SOURCE LINE # 230
+000B EF                MOV     A,R7
+000C 5440              ANL     A,#040H
+000E FE                MOV     R6,A
+000F EF                MOV     A,R7
+0010 5410              ANL     A,#010H
+0012 4E                ORL     A,R6
+0013 4288              ORL     TCON,A
+                                           ; SOURCE LINE # 234
+0015 22                RET     
+             ; FUNCTION TIMER01_0_enter_DefaultMode_from_RESET (END)
 
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =     43    ----
+   CODE SIZE        =     91    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
    DATA SIZE        =   ----    ----
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        12/16/2017 14:09:00 PAGE 7   
+
    EDATA SIZE       =   ----    ----
    HDATA SIZE       =   ----    ----
    XDATA CONST SIZE =   ----    ----

@@ -1,0 +1,32 @@
+MPLINK 5.08, LINKER
+Linker Map File - Created Sat Dec 16 15:39:57 2017
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000014
+                   .cinit    romdata   0x00000a    program   0x000004
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x00000b      
+            12 out of 261 program addresses used, program memory utilization is 4%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                 next_bit   0x000006    program     static C:\Users\Jacques\Documents\GitHub\desperate_firefly.X\desperate_firefly.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                 next_bit   0x000006    program     static C:\Users\Jacques\Documents\GitHub\desperate_firefly.X\desperate_firefly.asm
+
+

@@ -23,9 +23,8 @@
 // and may trigger before main() in some instances.
 //-----------------------------------------------------------------------------
 void SiLabs_Startup (void)
-{  //disable watchdog timer
-   WDTCN = 0xDE; //First key
-   WDTCN = 0xAD; //Second key
+{
+
 }
 
 // bit pattern to generate SOS morse code: dit,dit,dit,dah,dah,dah,dit,dit,dit
@@ -38,11 +37,15 @@ int main (void)
 {
 	unsigned char b,c;
 
+#define LED (1<<3)
 // Call hardware initialization routine
   enter_DefaultMode_from_RESET();
   b=0;
   while (1) 
   {
+	  PCON0|=PCON0_IDLE__BMASK;
+//	  P1^=LED;
+
 	c=sos[b/8]&(1<<(7-b%8));
     b++;
     if (b==28) b=0;

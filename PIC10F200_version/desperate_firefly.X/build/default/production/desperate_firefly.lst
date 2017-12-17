@@ -1,0 +1,146 @@
+MPASM 5.71             DESPERATE_FIREFLY.ASM   12-16-2017  18:19:17         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001     include "P10F200.INC"
+                      00001         LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ; Build date : Nov 17 2016
+                      00005 ;  MPASM PIC10F200 processor include
+                      00006 ; 
+                      00007 ;  (c) Copyright 1999-2016 Microchip Technology, All rights reserved
+                      00008 ;==========================================================================
+                      00009 
+                      00152         LIST
+                      00002     
+                      00003     ;__config  _WDTE_OFF
+                      00004     
+  0004                00005     constant LED=(1<<GP2)    
+  0016                00006     constant count=16
+                      00007     code 
+                      00008     org 0
+                      00009 ; hardware init
+0000   0C8C           00010     movlw (1<<NOT_GPWU)|(1<<PSA)|4
+0001   0002           00011     OPTION
+0002   0CFB           00012     movlw ~LED
+0003   0006           00013     TRIS  GPIO
+0004   0783           00014     btfss STATUS,NOT_TO
+0005   0A??           00015     goto next_bit
+0006   0076           00016     clrf count
+                      00017     
+0007                  00018 next_bit:
+0007   0216           00019     movfw count
+0008   09??           00020     call sos
+0009   0F00           00021     xorlw 0
+000A   0743           00022     skpz 
+000B   0446           00023     bcf GPIO,GP2
+000C   0643           00024     skpnz
+000D   0546           00025     bsf GPIO,GP2
+Message[305]: Using default destination of 1 (file).
+000E   02B6           00026     incf count
+000F   0C1C           00027     movlw .28
+0010   0196           00028     xorwf count,W
+0011   0643           00029     skpnz
+0012   0076           00030     clrf count
+0013   0003           00031     sleep
+                      00032 
+0014                  00033 sos: 
+0014   01E2           00034     addwf PCL,F
+0015   0801 0800 0801 00035     dt 1,0,1,0,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,0,1,0,1,0,0,0,0,0
+       0800 0801 0800 
+       0801 0801 0801 
+       0800 0801 0801 
+       0801 0800 0801 
+       0801 0801 0800 
+       0801 0800 0801 
+       0800 0801 0800 
+MPASM 5.71             DESPERATE_FIREFLY.ASM   12-16-2017  18:19:17         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+       0800 0800 0800 
+       0800 
+                      00036     
+                      00037     end
+MPASM 5.71             DESPERATE_FIREFLY.ASM   12-16-2017  18:19:17         PAGE  3
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+C                                 00000000
+CAL0                              00000001
+CAL1                              00000002
+CAL2                              00000003
+CAL3                              00000004
+CAL4                              00000005
+CAL5                              00000006
+CAL6                              00000007
+DC                                00000001
+F                                 00000001
+FOSC4                             00000000
+FSR                               00000004
+GP0                               00000000
+GP1                               00000001
+GP2                               00000002
+GP3                               00000003
+GPIO                              00000006
+GPWUF                             00000007
+INDF                              00000000
+LED                               00000004
+NOT_GPPU                          00000006
+NOT_GPWU                          00000007
+NOT_PD                            00000003
+NOT_TO                            00000004
+OSCCAL                            00000005
+PCL                               00000002
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+STATUS                            00000003
+T0CS                              00000005
+T0SE                              00000004
+TMR0                              00000001
+TRISIO0                           00000000
+TRISIO1                           00000001
+TRISIO2                           00000002
+TRISIO3                           00000003
+W                                 00000000
+Z                                 00000002
+_CONFIG                           00000FFF
+_CP_OFF                           00000FFF
+_CP_ON                            00000FF7
+_IDLOC0                           00000100
+_IDLOC1                           00000101
+_IDLOC2                           00000102
+_IDLOC3                           00000103
+_IntRC_OSC                        00000FFF
+_MCLRE_OFF                        00000FEF
+_MCLRE_ON                         00000FFF
+_OSC_IntRC                        00000FFF
+_WDTE_OFF                         00000FFB
+_WDTE_ON                          00000FFF
+MPASM 5.71             DESPERATE_FIREFLY.ASM   12-16-2017  18:19:17         PAGE  4
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+_WDT_OFF                          00000FFB
+_WDT_ON                           00000FFF
+__10F200                          00000001
+count                             00000016
+next_bit                          00000007
+sos                               00000014
+
+Errors   :     0
+Warnings :     0 reported,     0 suppressed
+Messages :     1 reported,     0 suppressed
+
+

@@ -8,10 +8,12 @@ A51_UPPER_SRCS += \
 
 C_SRCS += \
 ../src/InitDevice.c \
+../src/Interrupts.c \
 ../src/desperate_firefly_main.c 
 
 OBJS += \
 ./src/InitDevice.OBJ \
+./src/Interrupts.OBJ \
 ./src/SILABS_STARTUP.OBJ \
 ./src/desperate_firefly_main.OBJ 
 
@@ -24,7 +26,9 @@ src/%.OBJ: ../src/%.c
 	@echo 'Finished building: $<'
 	@echo ' '
 
-src/InitDevice.OBJ: C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/v4.0.8/Device/EFM8BB1/inc/SI_EFM8BB1_Register_Enums.h C:/Users/Jacques/SimplicityStudio/v4_workspace/desperate_firefly/inc/InitDevice.h C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/v4.0.8/Device/EFM8BB1/inc/SI_EFM8BB1_Defs.h C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/v4.0.8/Device/shared/si8051Base/si_toolchain.h C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/v4.0.8/Device/shared/si8051Base/stdint.h C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/v4.0.8/Device/shared/si8051Base/stdbool.h
+src/InitDevice.OBJ: C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/v4.1.0/Device/EFM8BB1/inc/SI_EFM8BB1_Register_Enums.h C:/Users/Jacques/SimplicityStudio/v4_workspace/desperate_firefly/inc/InitDevice.h C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/v4.1.0/Device/EFM8BB1/inc/SI_EFM8BB1_Defs.h C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/v4.1.0/Device/shared/si8051Base/si_toolchain.h C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/v4.1.0/Device/shared/si8051Base/stdint.h C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/v4.1.0/Device/shared/si8051Base/stdbool.h
+
+src/Interrupts.OBJ: C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/v4.1.0/Device/EFM8BB1/inc/SI_EFM8BB1_Register_Enums.h C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/v4.1.0/Device/EFM8BB1/inc/SI_EFM8BB1_Defs.h C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/v4.1.0/Device/shared/si8051Base/si_toolchain.h C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/v4.1.0/Device/shared/si8051Base/stdint.h C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/v4.1.0/Device/shared/si8051Base/stdbool.h
 
 src/%.OBJ: ../src/%.A51
 	@echo 'Building file: $<'
@@ -33,6 +37,6 @@ src/%.OBJ: ../src/%.A51
 	@echo 'Finished building: $<'
 	@echo ' '
 
-src/desperate_firefly_main.OBJ: C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/v4.0.8/Device/EFM8BB1/inc/SI_EFM8BB1_Register_Enums.h C:/Users/Jacques/SimplicityStudio/v4_workspace/desperate_firefly/inc/InitDevice.h C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/v4.0.8/Device/EFM8BB1/inc/SI_EFM8BB1_Defs.h C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/v4.0.8/Device/shared/si8051Base/si_toolchain.h C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/v4.0.8/Device/shared/si8051Base/stdint.h C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/v4.0.8/Device/shared/si8051Base/stdbool.h
+src/desperate_firefly_main.OBJ: C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/v4.1.0/Device/EFM8BB1/inc/SI_EFM8BB1_Register_Enums.h C:/Users/Jacques/SimplicityStudio/v4_workspace/desperate_firefly/inc/InitDevice.h C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/v4.1.0/Device/EFM8BB1/inc/SI_EFM8BB1_Defs.h C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/v4.1.0/Device/shared/si8051Base/si_toolchain.h C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/v4.1.0/Device/shared/si8051Base/stdint.h C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/v4.1.0/Device/shared/si8051Base/stdbool.h
 
 
